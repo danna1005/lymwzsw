@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-2.5.xsd 
+		http://www.springframework.org/schema/tx 
+		http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.0.xsd 
+		http://www.springframework.org/schema/context  
+		http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+		
+	<!-- 属性文件读入,使用rapid中的JdbcPlaceholderConfigurer则可以从数据库读取配置信息 -->
+	<context:property-placeholder location="classpath:jdbc.properties" />
+	<!-- 数据源定义,使用Apache DBCP 连接池 -->
+	<import resource="classpath:c3p0_datasource.xml" />
+	<!-- 加载hibernater配置信息 -->
+	<bean
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		id="sessionFactory">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation" value="classpath:hibernate.cfg.xml" />
+		<property name="mappingLocations" value="classpath*:com/**/entity/*.hbm.xml" />
+	</bean>
+	<!-- 声明事务管理器 -->
+	<bean class="org.springframework.orm.hibernate3.HibernateTransactionManager"
+		id="transactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+	<!-- 声明事务 -->
+	<tx:advice id="txadvice" transaction-manager="transactionManager">
+		<tx:attributes>
+			<tx:method name="save*" propagation="REQUIRED" read-only="false" />
+			<tx:method name="update*" propagation="REQUIRED" read-only="false" />
+			<tx:method name="delete*" propagation="REQUIRED" read-only="false" />
+			<tx:method name="get*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+			<tx:method name="confirm*" propagation="REQUIRED"
+				read-only="false" />
+		</tx:attributes>
+	</tx:advice>
+	<!-- 切点 -->
+	<aop:config>
+		<aop:pointcut expression="execution(* com.thiscc.*.biz.*.*(..))"
+			id="aoppointcut" />
+		<aop:advisor advice-ref="txadvice" pointcut-ref="aoppointcut" />
+	</aop:config>
+
+	<bean
+		class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />
+	<bean class="com.thiscc.tools.common.BaseDAO" id="basedao" />
+	<bean class="com.thiscc.tools.common.JSONQueryUtils" id="jsonQueryUtils" />
+
+	<!-- 登录 -->
+	<bean class="com.thiscc.xtsz.biz.LoginInfoBiz" id="loginInfoBiz" />
+	<bean class="com.thiscc.xtsz.dao.LoginInfoDao" id="loginInfoDao" />
+
+	<!-- 公司动态 -->
+	<bean class="com.thiscc.xtsz.biz.NewsBiz" id="newsBiz" />
+	<bean class="com.thiscc.xtsz.dao.NewsDao" id="newsDao" />
+
+	<!-- 图片管理 -->
+	<bean class="com.thiscc.xtsz.biz.ImgManageBiz" id="imgManageBiz" />
+	<bean class="com.thiscc.xtsz.dao.ImgManageDao" id="imgManageDao" />
+
+	<!-- 用户设置 -->
+	<bean class="com.thiscc.xtsz.biz.UserInfoBiz" id="userInfoBiz" />
+	<bean class="com.thiscc.xtsz.dao.UserInfoDao" id="userInfoDao" />
+	
+	<!-- 客户服务 -->
+	<bean class="com.thiscc.xtsz.biz.CustomerServicesBiz" id="customerServicesBiz" />
+	<bean class="com.thiscc.xtsz.dao.CustomerServicesDao" id="customerServicesDao" />
+</beans>

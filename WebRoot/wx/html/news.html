@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>浏阳市马尾皂水库管理所微网站-新闻列表</title>
+<meta name="robots" content="all">
+<meta name="author" content="Design:ThisCC-Design Department; Web Layout:ThisCC-web-Lyq">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="../css/Structure.css" rel="stylesheet" type="text/css" />
+<link href="../css/Pattern.css" rel="stylesheet" type="text/css" />
+<link href="../css/animate.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../web/js/jquery.js"></script>
+<script type="text/javascript" src="../../web/js/jquery.SuperSlide2.js"></script>
+<script type="text/javascript" src="../../web/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" src="../js/page.js"></script>
+<script type="text/javascript">
+	var listTemp = '{{each list as value i}}'
+	+		'{{if i<=10}}'
+	+       	 '<li class="floatLwidth bor-bot-f2 padTB-5"><a class="news-tit" href="news-Detail.html?id={{ value.id }}&type={{if value.type=="2"}}gsxw{{/if}}{{if value.type=="3"}}hyzx{{/if}}{{if value.type=="4"}}mtzx{{/if}}{{if value.type=="5"}}swzs{{/if}}{{if value.type=="6"}}gjfg{{/if}}{{if value.type=="7"}}hnfg{{/if}}{{if value.type=="8"}}csfg{{/if}}{{if value.type=="9"}}szgk{{/if}}">{{value.title | checkPublishText:28}}</a><span class="news-date">{{ value.time.substring(0,10) }}</span></li>'
+	+		'{{/if}}'
+	+    '{{/each}}';
+	var listRender = template.compile(listTemp);
+	type="";
+	function lawgetInfo(pramUrl){
+		switch(pramUrl.type){	
+			case 'gsxw':
+				type=2;
+			break;
+			case 'hyzx':
+				type=3;				
+			break;
+			case 'mtzx':
+				type=4;
+			break;
+			case 'swzs':
+				type=5;
+			break;
+			case 'gjfg':
+				type=6;
+			break;
+			case 'hnfg':
+				type=7;
+			break;
+			case 'csfg':
+				type =8;
+			break;
+			case 'szgk':
+				type=9;
+			break;
+		}
+		$.ajax({
+			url:"../../newsAction.do?method=getPageData",
+			type:"post",
+			async:false,
+			data:{
+				type:type,
+				state:"1",
+				pageIndex:0,
+				pageSize:10,
+				sortField : 'time',
+				sortOrder : 'desc'
+			},
+			success:function(e){
+				e = $.parseJSON(e);
+				var data = e.data;
+				if(data!=null&&data!=""){
+					var listHtml = listRender({list: data});
+				    $(".news-list").html(listHtml);
+				}else{
+					$(".news-list").html('<div style="margin:30px auto; text-align:center;">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>');
+				}
+			}
+		});
+	}
+</script>
+<script type="text/javascript">
+	$(function(){
+		var type="";  //初始化新闻类型
+		switch(getUrlParam().type){
+			case 'gsxw':
+				type=2;
+			break;
+			case 'hyzx':
+				type=3;				
+			break;
+			case 'mtzx':
+				type=4;
+			break;
+			case 'swzs':
+				type=5;
+			break;
+			case 'gjfg':
+				type=6;
+			break;
+			case 'hnfg':
+				type=7;
+			break;
+			case 'csfg':
+				type =8;
+			break;
+			case 'szgk':
+				type=9;
+			break;
+		}
+		$.ajax({
+          url:"../../newsAction.do?method=getCount",
+          type:"post",
+          async:false,
+          data:{
+            type:type,
+            state:"1"
+          },
+          success:function(e){
+            e = $.parseJSON(e);
+            var lase = e.num%10;
+            var count = lase==0?e.num/10:parseInt(e.num/10+1);
+            if(count>1){
+		        $(".page").pagination(count, {
+	              num_edge_entries: 1, //边缘页数
+	              num_display_entries: count, //主体页数
+	              callback: pageselectCallback,
+	              items_per_page: 1, //每页显示1项
+	              prev_text: "前一页",
+	              next_text: "后一页"
+	            }); 
+		    }
+          }
+        });
+	})
+function pageselectCallback(page_index, jq){
+	if(type!=""){
+		$(".news-list").html('');
+	    $.ajax({
+	      url: "../../newsAction.do?method=getPageData",
+	      data:{
+	        type:type,
+	        state:"1",
+	        pageIndex:page_index,
+	        pageSize:10,
+	        sortField : 'time',
+	        sortOrder : 'desc'
+	       },
+	      success:function(e){
+	        e = $.parseJSON(e);
+	        var data = e.data;
+	        var listHtml = listRender({list: data});
+	        $(".news-list").html(listHtml);
+	      }
+	    });
+	}
+}
+</script>
+</head>
+
+<body class="bg-White">
+<header class="clor-Orige s-detail-header">
+    <a href="index.html" class="hd-comeL Icon-comeL"></a>
+    <h3 class="header-title">公司新闻</h3>
+</header>
+<div class="container width100 marT-50">
+	<div class="floatLwidth bg-White">
+		<div class="article">
+			<ul class="news-list">
+			</ul>
+			<div class="page"> 
+	          <div class="clear"></div>
+	        </div>
+		</div>
+	</div>
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>

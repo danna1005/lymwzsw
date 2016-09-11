@@ -1,0 +1,163 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script src="../js/boot.js" type="text/javascript"></script>
+<script src="../js/public.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="mini-toolbar" borderStyle="border:0px;" style="background:none;margin-top:1px;">
+    <table style = "width:100%;">
+	    <tr>
+		    <td><div class="htmlboor" type="4"/></td>
+	    </tr>
+    </table>
+</div>
+       <div class="mini-fit">
+       <div  style="height:98%;width:98%;padding-left:10px;">
+            <div id="datagrid1" class="mini-datagrid" style="width:99%;height:96%" 
+		        url="../userInfoAction.do?method=getPageData" idField="id" allowMoveColumn=false pageSize="50" load="setPage()" showReloadButton=false >
+		        <div property="columns">
+		        	<div type="indexcolumn" headerAlign="center">序号</div>
+		            <div field="id" width="120" headerAlign="center" allowSort="true" visible=false>id
+		            </div> 
+		            <div field="userno" width="120" headerAlign="center" align="center" allowSort="true">登录帐号
+		                <input property="editor" class="mini-textbox" />
+		            </div>                    
+		            <div field="username" width="100" allowSort="true" headerAlign="center" align="center">姓名
+		            </div>
+		            <div field="userphone" width="100" allowSort="true" headerAlign="center" align="center">联系电话
+		            </div> 
+		            <div field="remark" width="100" allowSort="true" headerAlign="center">备注
+		            </div> 
+		            <div name="action" width="120" headerAlign="center" align="center" renderer="onActionRenderer" cellStyle="padding:0;">操作</div>             
+		        </div>
+			</div>
+        </div>
+       </div>
+<div id="editWindow" class="mini-window" title="添加操作人员" style="width:320px;height:300px;" 
+    showModal="true" allowResize="true" allowDrag="true">
+    <div id="editform" class="form" >
+        <input class="mini-hidden" id="id" name="id"/>
+        <table style="width:100%;">
+            <tr style="height:38px;">
+             	<td style="width:80px;" align="right">登录帐号</td>
+                <td style="width:160px;"><input name="userno" required="true" class="mini-textbox" style="width:180px; height:25px;" /></td>
+            </tr>
+            <tr style="height:38px;">
+             	<td style="width:80px;" align="right">登录密码</td>
+                <td style="width:160px;"><input name="userpass" required="true" class="mini-password" style="width:180px; height:25px;" /></td>
+            </tr>
+            <tr style="height:38px;"> 
+                <td align="right">姓名</td>
+                <td style="width:160px;"><input name="username" required="true" class="mini-textbox" style="width:180px; height:25px;" /></td>
+            </tr>
+            
+            <tr style="height:38px;">
+                <td style="width:70px;" align="right">联系电话</td>
+                <td style="width:160px;">    
+                   <input name="userphone" class="mini-textbox" style="width:180px; height:25px;" />
+                </td> 
+            </tr>
+            <tr style="height:42px;">
+                <td style="width:70px;"  align="right">备注</td>
+                <td style="width:160px;">    
+                   <input name="remark" class="mini-textarea" style="width:180px; height:38px;" />
+                </td>
+            </tr>
+            <tr style="height:48px;">
+                <td  align="center" colspan="2">
+                    <a class="mini-button" style="width:60px;margin-right:20px;" href="javascript:onOk()">确定</a> &nbsp;&nbsp;&nbsp;
+                    <a class="mini-button" style="width:60px;" href="javascript:cancelRow()">取消</a>
+                </td>                
+            </tr>
+        </table>
+    </div>
+</div>
+<script>
+mini.parse();
+var grid = mini.get("datagrid1");
+var editWindow = mini.get("editWindow");
+var form = new mini.Form("#editform");
+grid.sortBy("id", "desc");
+	
+var wtype = 0;
+var arr=[];
+var rolepower;
+
+function onOk(e){
+    SaveData("../userInfoAction.do?method=save");
+}
+function SaveData(url) {
+    var o = form.getData();     
+
+    form.validate();
+    if (form.isValid() == false) return;
+			grid.loading("保存中，请稍后......");
+	if(o.userpass.length!=32 ){
+		o.userpass = md5(o.userpass);
+	}
+    var json = mini.encode([o]);
+    $.ajax({
+        url: url,
+			type: 'post',
+        data: {"data":json},
+        cache: false,
+        success: function (text) {
+			  grid.reload();
+        }
+    });
+	editWindow.hide();
+}
+
+function onActionRenderer(e) {
+    var grid = e.sender;
+    var record = e.record;
+    var uid = record.id;
+    var rowIndex = e.rowIndex;
+
+    var s = '<a class="Edit_Button" href="javascript:editRow(\'' + uid + '\')">编辑</a>'
+            + '<a class="Delete_Button" href="javascript:delRow(\'' + uid + '\')">删除</a>';
+               
+    return s;
+}
+function editRow(uid) {
+    if (uid) {
+        editWindow.show();
+        var form = new mini.Form("#editform");
+        form.clear();
+        form.loading();
+        $.ajax({
+            url:"../userInfoAction.do?method=detailJson&id=" + uid,
+            success:function(text){
+              form.unmask();
+              var o = mini.decode(text);
+              form.setData(o);
+            }
+        });
+    }
+}
+function delRow(uid) {
+    if (uid){
+        if (confirm("确定删除此记录？")) {
+            grid.loading("删除中，请稍后......");
+            $.ajax({
+               url: "../userInfoAction.do?method=delete&id=" +uid,
+               success: function (text) {
+                 grid.reload();
+               },
+               error:function(){
+               }
+           });
+       }
+   }
+};
+
+var fn = {
+	 windiframeObj:function(){alert(1)}
+}
+
+</script>
+</body>
+</html>

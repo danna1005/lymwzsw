@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<script src="../js/boot.js" type="text/javascript"></script>
+<script charset="utf-8" src="../kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="../kindeditor/lang/zh_CN.js"></script>
+</head>
+<body>
+<div class="mini-fit">
+	<div id="editform" class="form" >
+        <input class="mini-hidden" name="id"/>
+        <table style="width:100%;">
+            <tr height="48">
+	            <td align="right" width="60">日期：</td>
+	            <td><input name="time" required="true" allowInput="false" class="mini-datepicker"/></td>
+            </tr>
+			<tr>
+				<td align="right" >标题：</td>
+                <td>
+                  	<input name="title" class="mini-textbox" required="true" style="width:300px; margin-bottom:12px;" />
+                </td>
+			</tr>
+            <tr height="48">
+            	<td valign="top" align="right">内容：</td>
+                <td >
+	                <textarea id="ke" name="contents" style="width:90%;height:290px;visibility:hidden;">
+				    </textarea>
+                </td>
+            </tr>
+			
+            <tr height="48">
+                <td  align="center" colspan="2">
+                    <a class="mini-button" style="width:60px;margin-right:20px;" href="javascript:onOk()">确定</a>&nbsp;&nbsp;&nbsp;
+                    <a class="mini-button" style="width:60px;" href="javascript:cancelRow()">取消</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>        
+<script>
+
+	mini.parse();
+	var type = getUrlParam().type;	//1:公司动态;2:公告通知;3:法律法规;4:公司文化;5:联系我们
+	var form = new mini.Form("#editform");
+	$(document).ready(function(){
+		$.ajax({
+			url:"../newsAction.do?method=detailJsonByType&type=" + type,
+			success: function (text) {
+				if(text!=""){
+					var o = mini.decode(text);
+					setText(o.contents);
+					form.setData(o);
+				}
+			}
+		});
+	});
+	
+	function onOk(e) {
+       SaveData("../newsAction.do?method=save");
+    }
+
+    function SaveData(url) {
+       var o = form.getData();
+       o.contents = getText(); 
+       o.state = "1";	//0:未发布；1:已发布
+       o.type = type;
+       form.validate();
+       
+       if (form.isValid() == false) return;
+       var json = mini.encode([o]);
+       $.ajax({
+           url: url,
+		   type:'post',
+           data: { data: json },
+           cache: false,
+           success: function (text) {
+              console.info(text);
+			  mini.alert("保存成功!");
+           }
+       });
+    }
+    var sum = 0;	
+    function setText(text) {
+        editor.html(text);
+    }
+    function getText() {
+        var text = editor.html();
+        return text;
+    }
+    //-------------------------------------------------------------
+    var editorId = "ke";
+    var editor = null;
+    setTimeout(function () {
+        editor = KindEditor.create('#' + editorId, {
+            resizeType: 1,
+            uploadJson: '../kindeditor/jsp/upload_json.jsp',
+            fileManagerJson: '../kindeditor/jsp/file_manager_json.jsp',
+            allowPreviewEmoticons: false,
+            allowImageUpload: true,
+            items: [
+		    'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold', 'italic', 'underline',
+		    'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
+		    'insertunorderedlist', '|', 'emoticons', 'image','table','insertfile','link']
+        });
+    }, 1);
+
+  </script>
+</body>
+</html>

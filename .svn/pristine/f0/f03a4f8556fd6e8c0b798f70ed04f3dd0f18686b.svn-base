@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources/>
+  <global-exceptions/>
+  <global-forwards/>
+  <action-mappings>
+	  <!-- 登录 -->
+	  <action parameter="method" path="/loginAction" type="com.thiscc.xtsz.action.LoginAction"/>
+	  
+	  <!-- 公司动态 -->
+	  <action parameter="method" path="/newsAction" type="com.thiscc.xtsz.action.NewsAction"/>
+	  
+	  <!-- 图片管理 -->
+	  <action parameter="method" path="/imgManageAction" type="com.thiscc.xtsz.action.ImgManageAction"/>
+	  
+	  <!-- 用户设置 -->
+	  <action parameter="method" path="/userInfoAction" type="com.thiscc.xtsz.action.UserInfoAction"/>
+	  
+	  <!-- 客户服务 -->
+	  <action parameter="method" path="/customerServicesAction" type="com.thiscc.xtsz.action.CustomerServicesAction"/>
+	  
+  </action-mappings>
+  <controller locale="false"/>
+</struts-config>

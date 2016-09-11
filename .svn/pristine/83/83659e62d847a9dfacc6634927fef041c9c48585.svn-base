@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>浏阳市马尾皂水库管理所微网站</title>
+<meta name="robots" content="all">
+<meta name="author" content="Design:ThisCC-Design Department; Web Layout:ThisCC-web-Lyq">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="../css/Structure.css" rel="stylesheet" type="text/css" />
+<link href="../css/Pattern.css" rel="stylesheet" type="text/css" />
+<link href="../css/animate.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../web/js/jquery.js"></script>
+<script type="text/javascript" src="../../web/js/jquery.SuperSlide2.js"></script>
+<script type="text/javascript" src="../../web/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" src="../js/page.js"></script>
+</head>
+
+<body class="bg-light-gray">
+<div class="container width100">
+	<div class="floatLwidth">
+		<div class="slider">
+			<ul>
+				<li><img src="../../web/images/mwzsk.jpg" alt="马尾皂水库"/></li>
+				<li><img src="../../web/images/mwzdb.jpg" alt="马尾皂大坝"/></li>
+				<li><img src="../../web/images/mwzsc.jpg" alt="马尾皂水厂"/></li>				
+				<li><img src="../../web/images/sdz2.jpg" alt="马尾皂水电站"/></li>
+			</ul>
+			<div class="thumb_btn">
+				<span>1</span>
+				<span>2</span>
+				<span>3</span>
+				<span>4</span>
+			</div>
+		</div>
+    </div>
+    <div class="floatLwidth overYau marT-10">
+    	<div class="temporary">
+    		<p class="profile">
+    			<a href="aboutus.html"><span class="panel"><img src="../images/profile.jpg"/><em>公司简介</em></span></a>
+    		</p>
+    		<p class="water-public">
+    			<a href="news.html?type=szgk"><span class="panel"><img src="../images/szgk.png"/><em>水质公开</em></span></a>
+    		</p>
+    		<p class="water-search">
+    			<a href="http://ccpay.thiscc.com/index.html"><span class="panel"><img src="../images/indexn3.png"/><em>水费查询</em></span></a>
+    		</p>
+    	</div>
+    </div>
+    <div class="category js-top-hei">
+    	<h2 class="cname dis-none">水务新闻</h2>
+    	<div class="marTB-12 bg-White bor-1 radis-6">
+    		<img src="../images/nbanner.jpg" class="img100width radisT"/>
+    		<ul class="nav">
+	    		<li>
+	    			<a href="news.html?type=gsxw">
+	    				<div class="rancle">
+	    					<img src="../images/icon-jj.png" alt="公司新闻"/>
+	    				</div>
+	    				<span class="tit">公司新闻</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="news.html?type=hyzx">
+	    				<div class="rancle">
+	    					<img src="../images/icon-hyzx.png" alt="行业资讯"/>
+	    				</div>
+	    				<span class="tit">行业资讯</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="news.html?type=mtzx">
+	    				<div class="rancle">
+	    					<img src="../images/icon-mtzx.png" alt="媒体资讯"/>
+	    				</div>
+	    				<span class="tit">媒体资讯</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="news.html?type=swzs">
+	    				<div class="rancle">
+	    					<img src="../images/icon9.png" alt="水务知识"/>
+	    				</div>
+	    				<span class="tit">水务知识</span>
+	    			</a>
+	    		</li>
+	    	</ul>
+    	</div>
+    	<h2 class="cname marT-20 dis-none">客户服务</h2>
+    	<div class="marTB-12 bg-White bor-1 radis-6">
+    		<!-- <img src="../images/wxzfbz1.png" class="img100width radisT"/> -->
+    		<h2 class="cname radisT">客户服务</h2>
+    		<ul class="nav">
+	    		<li>
+	    			<a href="qa.html">
+	    				<div class="rancle">
+	    					<img src="../images/icon-qa.png" alt="常见问题"/>
+	    				</div>
+	    				<span class="tit">常见问题</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="service.html?type=ysjg">
+	    				<div class="rancle">
+	    					<img src="../images/icon-profile.png" alt="用水价格"/>
+	    				</div>
+	    				<span class="tit">用水价格</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="service.html?type=lxwm">
+	    				<div class="rancle">
+	    					<img src="../images/icon-contact.png" alt="联系我们"/>
+	    				</div>
+	    				<span class="tit">联系我们</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="service.html?type=ywzn">
+	    				<div class="rancle">
+	    					<img src="../images/thumb_shoufei.png" alt="业务指南"/>
+	    				</div>
+	    				<span class="tit">业务指南</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="service.html?type=yywd">
+	    				<div class="rancle">
+	    					<img src="../images/icon-site.png" alt="营业网点"/>
+	    				</div>
+	    				<span class="tit">营业网点</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="service.html?type=yhxz">
+	    				<div class="rancle">
+	    					<img src="../images/icon-xz.png" alt="用户须知"/>
+	    				</div>
+	    				<span class="tit">用户须知</span>
+	    			</a>
+	    		</li>
+	    	</ul>
+    	</div>
+    	<h2 class="cname marT-20 dis-none">政策法规</h2>
+    	<div class="marTB-12 bor-1 bg-White radis-6">
+    		<!-- <img class="img100width radisT" src="../images/wenhuajianshe.png" alt="政策法律法规"/> -->
+    		<h2 class="cname radisT">政策法律法规</h2>
+    		<ul class="nav">
+	    		<li>
+	    			<a href="news.html?type=gjfg">
+	    				<div class="rancle">
+	    					<img src="../images/icon-fg.png" alt="国家行业法规"/>
+	    				</div>
+	    				<span class="tit">国家法规</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="news.html?type=hnfg">
+	    				<div class="rancle">
+	    					<img src="../images/icon-hnfg.png" alt="湖南省法规"/>
+	    				</div>
+	    				<span class="tit">湖南省法规</span>
+	    			</a>
+	    		</li>
+	    		<li>
+	    			<a href="news.html?type=csfg">
+	    				<div class="rancle">
+	    					<img src="../images/icon-csfg.png" alt="长沙市法规"/>
+	    				</div>
+	    				<span class="tit">长沙市法规</span>
+	    			</a>
+	    		</li>
+	    	</ul>
+    	</div>
+    </div>
+</div>
+</body>
+</html>

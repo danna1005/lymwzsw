@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>浏阳市马尾皂水库管理所-首页</title>
+<script type="text/javascript" src="js/boot.js"></script>
+<!--[if ie 6]>
+<script>
+	DD_belatedPNG.fix('.title,.prev,.next');
+</script>
+<![endif]-->
+</head>
+
+<body>
+<!--header-->
+<div id="top"></div>
+
+<!--banner-->
+<div id="cont">
+  <div class="w980">
+    <div class="ind-banner">
+    	<div class="focus">
+	    	<ul>
+	    		<li><img src="images/mwzdb.jpg" alt="马尾皂大坝"/></li>
+	    		<li><img src="images/mwzsk.jpg" alt="马尾皂水库"/></li>
+	    		<li><img src="images/sdz1.jpg"  alt="马尾皂水电站" /></li>
+	    		<li><img src="images/mwzsc.jpg" alt="马尾皂水厂" /></li>
+	    		<li><img src="images/sdz2.jpg" alt="马尾皂水电站" /></li>
+	    	</ul>
+	    	<div class="thumb_btn">
+	    		<span><img src="images/mwzdb_small.jpg" /></span>
+	    		<span><img src="images/mwzsk_small.jpg" /></span>
+	    		<span><img src="images/sdz1_small.jpg" /></span>
+	    		<span><img src="images/mwzsc_small.jpg" /></span>
+	    		<span><img src="images/sdz2_small.jpg" /></span>
+	    	</div>
+    	</div>
+    	
+    </div>
+  </div>
+</div>
+
+<!--contbox-->
+<div id="contbox" class="w980 posiup" >
+  <div class="contboxbg"> 
+    <!--contbox_news-->
+    <div class="news">
+      <div class="title"> <strong class="fl"><a href="aboutus.html?type=aboutus">公司简介</a></strong></div>
+      <div class="cont">
+      	<p class="txt-indent">
+      	 浏阳市马尾皂水库管理所成立于1976年，位于浏阳市淳口镇佛岭村，水库正常蓄水位167.78m，正常蓄水位库容2263万m³，是一座以防洪为主的中型水利工程，并兼有灌溉、发电、供水等综合效益的中型水库。
+      	</p>
+      	<p class="txt-indent">
+		马尾皂水库管理所属全民所有制自收自支的事业单位，现有干部职工48人，分为行政、工程灌溉安全饮水、电站三大组。水库管理所认真贯彻行党的水利工程方针，继承和发扬“献身、负责、求实”的水利行业精神，与时俱进，开拓创新，多次被上级部门评为先进单位。 
+      	</p>
+      </div>
+    </div>
+    <!--contbox_notify-->
+    <div class="notify">
+      <div class="title"> <strong class="fl"><a href="news.html?type=news&category=gsxw">公司新闻</a></strong> <span class="more fr"><a href="news.html?type=news&category=gsxw" >更多>></a></span></div>
+      <ul class="newslist" id="gsxwList">
+      </ul>
+    </div>
+    <!--contbox_serve-->
+    <div class="serve">
+      <ul>
+        <li><a href="http://ccpay.thiscc.com/index.html" target='_blank'> <img src="images/onlie_payment.jpg" width="270" height="58" /></a></li>
+        <li><a href="http://ccpay.thiscc.com/index.html" target='_blank'> <img src="images/query_water.jpg" width="270" height="58" /></a></li>
+        <li><a href="server.html?type=server&category=qa" target='_blank'> <img src="images/water_common_sense.jpg" width="270" height="58" /></a></li>
+        <li><a href="server.html?type=server&category=bzsq" target='_blank'> <img src="images/advice.jpg" width="270" height="58" /></a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="contboxbg0"> 
+    <!--contbox_news-->
+    <div class="news">
+      <div class="title"> <strong class="fl"><a href="news.html?type=news&category=swzs">水务知识</a></strong> <span class="more fr"><a href="news.html?type=news&category=swzs" >更多>></a></span></div>
+      <ul class="newslist" id="swzsList">       
+      </ul>
+    </div>
+    <!--contbox_notify-->
+    <div class="notify">
+      <div class="title"> <strong class="fl"><a href="news.html?type=szgk&category=szgk">水质公开</a></strong> <span class="more fr"><a href="news.html?type=szgk&category=szgk">更多>></a></span></div>
+      <ul class="newslist" id="szgkList">        
+      </ul>
+    </div>
+    <!--contbox_serve-->
+    <div class="serve">
+      <div class="notify">
+	    <div class="title">
+		      <strong class="fl"><a href="news.html?type=law&category=gjfg">政策法规</a></strong>
+		      <span class="more fr"><a href="news.html?type=law&category=gjfg" >更多>></a></span>
+	      </div>
+	      <!-- <div class="txt"></div> -->
+	      <ul class="newslist" id="zcfgList">
+	        
+	      </ul>
+	   </div>
+    </div>
+    </div>
+</div>
+<!--footer-->
+<div id="footer"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/public.js"></script>
+ <script type="text/javascript">
+	var gstdTemp = '{{each list as value i}}'
+		+		'{{if i<=8}}'
+		+       	 '<li><a href="detail.html?id={{ value.id }}&category=gsxw&type=news"  class="fl">{{value.title | checkPublishText:22}}</a> <span class="time">{{value.time.substring(0,10)}}</span></li>'
+		+		'{{/if}}'
+		+    '{{/each}}',
+		swzsTemp = '{{each list as value i}}'
+		+		'{{if i<4}}'
+		+        	'<li><a class="fl" href="detail.html?id={{ value.id }}&category=swzs&type=news">{{value.title | checkPublishText:17}}</a> <span class="fr">{{value.time.substring(0,10)}}</span></li>'
+		+		'{{/if}}'
+		+    '{{/each}}'
+		,szgkTemp = '{{each list as value i}}'
+		+		'{{if i<4}}'
+		+        	'<li><a class="fl" href="detail.html?id={{ value.id }}&category=szgk&type=szgk">{{value.title | checkPublishText:22}}</a> <span class="time">{{value.time.substring(0,10)}}</span></li>'
+		+		'{{/if}}'
+		+    '{{/each}}'
+		,zcfgTemp = '{{each list as value i}}'
+		+		'{{if i<4}}'
+		+        	'<li><a href="detail.html?id={{ value.id }}&category=gjfg&type=law">{{value.title | checkPublishText:22}}</a> <span class="time">{{value.time.substring(0,10)}}</span></li>'
+		+		'{{/if}}'
+		+    '{{/each}}';
+	var gstdRender = template.compile(gstdTemp),swzsRender = template.compile(swzsTemp),zcfgRender = template.compile(zcfgTemp),szgkRender = template.compile(szgkTemp);
+	//公司新闻
+	$.post("../newsAction.do?method=getPageData",
+	{
+		state:'1',
+		pageIndex:0,
+		pageSize:10,
+		type:'2',
+		sortField : 'time',
+		sortOrder : 'desc'
+	},function(e){
+		e = $.parseJSON(e);
+		var data = e.data;
+		var html = gstdRender({list:data});
+		$('#gsxwList').html(html);
+	});
+	//水务知识
+	$.post("../newsAction.do?method=getPageData",
+	{
+		state:'1',
+		pageIndex:0,
+		pageSize:4,
+		type:'5',
+		sortField : 'time',
+		sortOrder : 'desc'
+	},function(e){
+		
+		e = $.parseJSON(e);
+		var data = e.data;
+		var html= swzsRender({list:data});
+		$('#swzsList').html(html);
+	});
+	//水质公开
+	$.post("../newsAction.do?method=getPageData",
+	{
+		state:'1',
+		pageIndex:0,
+		pageSize:4,
+		type:'9',
+		sortField : 'time',
+		sortOrder : 'desc'
+	},function(e){	
+		e = $.parseJSON(e);
+		var data = e.data;
+		var html = szgkRender({list:data});
+		$('#szgkList').html(html);
+	});
+	//政策法规
+	$.post("../newsAction.do?method=getPageData",
+	{
+		state:'1',
+		pageIndex:0,
+		pageSize:4,
+		type:'6',
+		sortField : 'time',
+		sortOrder : 'desc'
+	},function(e){	
+		e = $.parseJSON(e);
+		var data = e.data;
+		var html = zcfgRender({list:data});
+		$('#zcfgList').html(html);
+	});
+ </script>
+ <script type="text/javascript">
+ 	$(function () {
+ 		$('.newslist').each(function(){
+ 			$(this).find('li:last').css('borderBottom',0);
+ 		})
+	    var sWidth = $(".focus").width(); //获取焦点图的宽度（显示面积）
+	    $(".focus ul li").css("width", sWidth);
+	    $(".focus ul").css("width",-sWidth);
+	    var len = $(".focus ul li").length; //获取焦点图个数
+	    var index = 0;
+	    var picTimer;
+
+	    //为小按钮添加鼠标滑入事件，以显示相应的内容
+	    $(".focus .thumb_btn span").css("opacity", 0.7).click(function () {
+	        index = $(".focus .thumb_btn span").index(this);
+	        showPics(index);
+	    }).eq(0).trigger("click");
+
+	    //本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+	    $(".focus ul").css("width", sWidth * (len));
+
+	    //鼠标滑上焦点图时停止自动播放，滑出时开始自动播放
+	    $(".focus").hover(function () {
+	        clearInterval(picTimer);
+	    }, function () {
+	        picTimer = setInterval(function () {
+	            showPics(index);
+	            index++;
+	            if (index == len) { index = 0; }
+	        }, 3000); //此4000代表自动播放的间隔，单位：毫秒
+	    }).trigger("mouseleave");
+
+	    //显示图片函数，根据接收的index值显示相应的内容
+	    function showPics(index) { //普通切换
+	        var nowLeft = -index * sWidth; //根据index值计算ul元素的left值
+	        $(".focus ul").stop(true, false).animate({ "left": nowLeft }, 1000); //通过animate()调整ul元素滚动到计算出的position
+	        //$("#focus .thumb_btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+	        $(".focus .thumb_btn span").stop(true, false).animate({ "opacity": "0.7" }, 1000).eq(index).stop(true, false).animate({ "opacity": "1" }, 1000); //为当前的按钮切换到选中的效果
+	    }
+	});
+ </script>

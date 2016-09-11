@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>浏阳市马尾皂水库管理所-后台管理</title>
+<link rel="shortcut icon" type="image/x-icon" href="images/icon.ico" media="screen"/>
+<link rel="stylesheet" type="text/css" href="./css/easyui.css"/>
+<link rel="stylesheet" type="text/css" href="css/com.css" />
+<script type="text/javascript" src="js/jquery-1.7.2.min.js" ></script>
+<style>
+	#left-h2{overflow-y:hidden; position:relative;width:180px;border-radius: 0 0 5px 5px;border: 1px solid #ccc;border-top:0px;}
+	html,body{overflow:hidden;}
+	a{ text-decoration:none;}
+	.window-header .panel-title {
+		margin-top: 5px;
+		color: #fff;
+		 font-size: 12px; 
+		position: relative;
+		top: -3px;
+		left: 5px;
+	}
+</style>
+</head>
+<body>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+     <td height="74" colspan="2" background="images/cc_top_bg.jpg" class="skin_heder">
+       <div class="fl"><img src="web/images/water-logo.png" width="60" height="60" id="logoss"/></div>
+       <div class="fl"><span class="logo-name">浏阳市马尾皂水库管理所</span></div>
+       <div class="fr" style="margin-top: 30px;"><span id="span" class="font3"></span></div>
+	   <div class="fr" style="margin-top: 30px;margin-right: 15px;">
+	   <span class="huanfu" onclick="huanfu()">换</span>
+	  </div>
+   </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="10%" valign="top">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+              <tr>
+                <td id="left-h" style="padding:0 0px 0 0px; vertical-align:top;">
+                <div id="left-h2" >
+                  <table border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+                    <tr>
+                      <td width="180" align="center" id="menus">
+                         <div class="w180 h35 ">
+                           <div class=" w176 h33 border-top-withe fl"></div>
+                           <div style="width:4px;" class="h35 fl bggray2"></div>
+                         </div>
+                         <div style=" height:1000px;" class="w4 relative fr bggray2"></div>
+                      </td>
+                    </tr>
+                  </table>
+              	 </div> 
+                </td>
+              </tr>
+            </table>
+          </td>
+          <td width="85%" valign="top" style="">
+            <table width="99.6%" border="0" cellspacing="0" cellpadding="0" style="table-layout:fixed">
+              <tr>
+                <td width="9" height="8"><img id="bgleftimg" src="images/index1_28.jpg" width="9" height="39" /></td>
+                <td width="99%" background="images/index1_40.jpg" id="bgmiddleimg">
+                </td>
+                <td width="8" height="8"><img id="bgrightimg" src="images/index1_43.jpg" width="8" height="39" /></td>
+              </tr>
+              <tr>
+                <td background="images/index1_45.gif"  width="8"  ></td>
+                <td background="" style="height:560px; vertical-align:top;" id="ead-contq">
+                  <div id="tt" class="easyui-tabs" style="position:absolute;top:75px;height:610px;">
+                      <div title="公司活动">
+                         <iframe scrolling="yes" frameborder="0"  id="index_ifrm" src="./work/dynamicwork2.html?type=1" style="width:100%;height:100%;"></iframe>
+                      </div>
+                  </div>
+                </td>
+                <td background="images/index1_47.gif"  width="8" ></td>
+              </tr>
+              <tr>
+                <td width="8" height="8"><img src="images/index1_91.jpg" width="8" height="8" /></td>
+                <td background="images/index1_92.gif"  style=" background-position: bottom;"></td>
+                <td width="8" height="8"><img src="images/index1_93.jpg" width="8" height="8" /></td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div id="wardiv"></div>
+
+<script type="text/javascript" src="./js/com.js"></script>
+<script type="text/javascript" src="./js/jquery.easyui.min.js"></script>
+<script>
+ var username;
+ $(function(){
+    $(".tabs-inner:first").trigger("click");
+    $.ajax({
+	   cache:false,
+	   url:'loginAction.do?method=GetUserInfo',
+       type:'post',
+	   success:function(okstr){
+	   	var json = eval('(' + okstr + ')'); 
+	     username=json.username;
+		 GetNowTime();
+	   }
+	});
+});
+
+function GetNowTime(){
+   var time = new Date().getFullYear()+'年'+eval(new Date().getMonth()+1)+'月'+new Date().getDate()+'日'+ '&nbsp;' +' 星期'+'日一二三四五六'.charAt(new Date().getDay())+'&nbsp;';//+new Date().getHours()+'时'+new Date().getMinutes()+'分'+new Date().getSeconds()+'秒';
+     $("#p3").html("当前时间："+time+"&nbsp;");
+     $("#span").css({"padding-right":30}).html("欢迎您,"+username+" 今天是："+time+"</span>&nbsp;"+"&nbsp;<a href='loginAction.do?method=ExitAction' class='font3' style='font-weight:700;'><img src='images/door_out.png' style='border:0px;top:5px;position:relative;right:1px;' > 退出</a>");
+}	
+
+
+function  huanfu(){
+	alertw = $.messager.alert('更换系统皮肤','<div class="xuline"><ul><li class="skin_default" alt="default" ><div class="skin_info_box"><div class="skin_info">&nbsp;</div><span class="sk_text_info">系统默认风格</span></div></li><li class="skin_blue" alt="blue"  ><div class="skin_info_box"><div class="skin_info">&nbsp;</div><span class="sk_text_info">系统蓝色风格</span></div></li><li class="skin_org" alt="orange" ><div class="skin_info_box"><div class="skin_info">&nbsp;</div><span class="sk_text_info">系统橙色风格</span></div></li></ul><div class="clear"></div><div class="skbuttbox2" style=""></div><div class="skbuttbox"><input type="button" class="skbutton1" value="确定"/><input type="button" class="skbutton2" value="取消"/></div></div>');
+	 
+	$("ul li").hover(function(){
+			$(this).find(".skin_info_box").slideDown("fast");
+		},function(){
+			$(this).find(".skin_info_box").slideUp("fast");
+		}).click(function(){
+				$("ul li[name='true']").removeAttr('name').removeAttr('style');
+				$(this).attr('name','true').attr("style","border:1px solid #fffa5d;");
+			});
+	
+		$(".skbutton2").click(function(){
+				alertw.window("close");
+		});
+		$(".skbutton1").click(function(){
+				var skin_id = $("ul li[name='true']").attr('alt');
+				$.cookie('skin', null);
+				$.cookie('skin', skin_id);
+				$("body").attr("id",skin_id);
+				alertw.window("close");
+				window.location.reload();
+		});	
+}	
+function getTitles(){
+	var titel = $('.tabs-selected .tabs-title ').html();
+	if (typeof titel  !='undefined')
+		return titel;  
+}
+</script>
+</body>
+</html>

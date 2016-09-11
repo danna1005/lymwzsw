@@ -1,0 +1,216 @@
+@charset "utf-8";
+/* 各种引用组件的样式 */
+
+.icon-check{ width:20px; height:20px; background:url(../images/component/u662.png) no-repeat; background-size:18px 18px;}
+.icon-check .icheck-a{width:20px; height:20px; background:url(../images/component/checkOK.png) no-repeat; background-size:18px 18px; display:none;}
+.icon-checkText{ margin-left:4px; text-align:left; width:114px;}
+
+.icon-checkB{ width:20px; height:20px; background:url(../images/component/u646.png) no-repeat; background-size:18px 18px;}
+.icon-checkB .icheck-a{width:20px; height:20px; background:url(../images/component/u646b.png) no-repeat; background-size:18px 18px; display:none;}
+
+/*-------选切卡--------*/
+.cgOther-cont-btn{ position:relative; border-bottom:1px solid #e4e4e4;}
+.cgOther-cont-btn a{ position:absolute; top:0; text-align:center; width:25%; height:48px; line-height:48px; color:#999; font-size:13px; display:inline-block;}
+.cgOther-cont-btn .act{ color:#38cf78; background:url(../images/general/u184_line.png) left 46px repeat-x;}
+.cgOther-cont-btn a:nth-child(1){ left:0;}
+.cgOther-cont-btn a:nth-child(2){ left:25%;}
+.cgOther-cont-btn a:nth-child(3){ left:50%;}
+.cgOther-cont-btn a:nth-child(4){ left:75%;}
+
+.cgOther-cont-btn-two{ position:relative; border-bottom:1px solid #e4e4e4;}
+.cgOther-cont-btn-two a{ position:absolute; top:0; text-align:center; height:48px; line-height:48px; color:#999; font-size:13px; display:inline-block;}
+.cgOther-cont-btn-two .act{ color:#e33539; background:url(../images/general/u22_line.png) left 46px repeat-x;}
+.cgOther-cont-btn-two a:nth-child(1){left:0; width:50%;}
+.cgOther-cont-btn-two a:nth-child(2){ left:50%; width:50%;}
+
+.cgOther-cont-btn-three{ position:relative;}
+.cgOther-cont-btn-three a{ position:absolute; top:0; text-align:center; height:36px; line-height:36px; color:#007AFF;font-size:13px; display:inline-block;}
+.cgOther-cont-btn-three .act{ color:#FFFFFF; background:#007AFF;}
+.cgOther-cont-btn-three a:nth-child(1){left:0; width:33%;}
+.cgOther-cont-btn-three a:nth-child(2){ left:33%; width:33%; border-left:1px solid #007AFF; border-right:1px solid #007AFF;}
+.cgOther-cont-btn-three a:nth-child(3){ left:66%; width:34%;}
+
+.cgOther-cont-btn-pcthree{ position:relative;}
+.cgOther-cont-btn-pcthree a{ position:absolute; top:0; text-align:center; height:32px; line-height:32px; color:#000000; font-size:13px; display:inline-block;}
+.cgOther-cont-btn-pcthree .act{ background-color:#FFFFFF; font-weight:bold;}
+.cgOther-cont-btn-pcthree a:nth-child(1){left:0; width:97px;}
+.cgOther-cont-btn-pcthree a:nth-child(2){ left:97px; width:97px;}
+.cgOther-cont-btn-pcthree a:nth-child(3){ left:194px; width:98px;}
+
+.sclect-pc-three .act{ display:block;}
+.sclect-pc-three .other{ display:none;}
+
+/*筛选开关*/
+.touchSwitch{ position:relative; width:26px; height:14px; border:3px solid #0099ff; border-radius:6px; display:block;}
+.touchSwitch .itg{ position:absolute; left:-1px; top:-1px; width:15px; height:15px; background:#0099ff; border-radius:4px;display:block;}
+
+/*筛选checkbox*/
+.icon-Alcheck a{width:20px; height:20px; display:none;}
+.icon-Alcheck{width:20px; height:20px;}
+.Icon-p-ckd{background-image:url(../images/component/u302.png);}
+.Icon-p-ckd{background-position:center center; background-size:20px 20px; background-repeat:no-repeat;}=======
+.icon-checkB .icheck-a{width:20px; height:20px; background:url(../images/component/u646b.png) no-repeat; display:none;}
+
+.downLocaElm{ position:absolute; top:0px; width:105px; height:38px; line-height:38px; color:#a9a8a8; font-size:13px; background:rgba(0,0,0,0.1); border-radius:6px; z-index:1;}
+
+/*进度条*/
+.progressbar {
+	position: relative;
+	background: #E4E4E4;
+	width: 100%;
+	height: 16px;
+	overflow: hidden;
+}
+.progressbar-percent {
+	float:left;
+	height: 18px;
+	background: blue;
+	left: 0;
+	top: 0px;
+	overflow: hidden;
+	z-index: 1;
+}
+
+.progressbar-label {
+	float:left;
+	left: 0;
+	top: 0;
+	width: 100%;
+	font-size: 13px;
+	/*color: White;*/
+	z-index: 10;
+	text-align: center;
+	height: 16px;
+	line-height: 16px;
+}
+
+/*freeDomApd*/
+.freeDomApd-Animate{
+	animation-name:freeDomApd;
+	-webkit-animation-name:freeDomApd;
+	animation-duration:0.55s;
+	-webkit-animation-duration:0.55s;
+	animation-timing-function:cubic-bezier(0.25,1,0.45,1);
+	-webkit-animation-timing-function:cubic-bezier(0.25,1,0.45,1);
+	animation-fill-mode:both;
+	-webkit-animation-fill-mode:both;
+}
+@-webkit-keyframes freeDomApd{
+	0%{ -webkit-transform:translate(4px,-4px) scale(0.2); opacity:0;}
+	100%{ -webkit-transform:translate(0,0); opacity:1}
+}
+@keyframes freeDomApd{
+	0%{ transform:translate(4px,-4px) scale(0.2); opacity:0;}
+	100%{ transform:translate(0,0); opacity:1}
+}
+.freeDomApd-AnimateLeave{
+	animation-name:freeDomApdLeav;
+	-webkit-animation-name:freeDomApdLeav;
+	animation-duration:0.75s;
+	-webkit-animation-duration:0.75s;
+	animation-timing-function:cubic-bezier(0.25,1,1,1);
+	-webkit-animation-timing-function:cubic-bezier(0.25,1,1,1);
+	animation-fill-mode:both;
+	-webkit-animation-fill-mode:both;
+}
+@-webkit-keyframes freeDomApdLeav{
+	0%{ -webkit-transform:translate(0,0) scale(1); opacity:1;}
+	55%{ -webkit-transform:translate(-2px,2px) scale(0.2);}
+	100%{ -webkit-transform:translate(4px,-4px); opacity:0}
+}
+@keyframes freeDomApdLeav{
+	0%{ transform:translate(0,0) scale(1); opacity:1;}
+	55%{ transform:translate(-2px,2px) scale(0.2);}
+	100%{ transform:translate(4px,-4px); opacity:0}
+}
+
+.freeDomApdDeley{
+	-webkit-animation-delay:0.2s;
+	animation-delay:0.2s;
+}
+
+
+.list-freeDomBox{ margin-top:20px; position:relative; padding-bottom:1px; text-align:left; width:120px; line-height:36px; /*background:#00abf2;*/ background:rgba(0,171,242,0.9); border-radius:4px;}
+.list-freeDomBox .Triangle{ position:absolute; right:7px; top:-13px; width:25px; height:15px; background:url(../images/general/Tiran.png) center center no-repeat; background-size:18px;}
+.list-freeDomBox ul{ overflow:hidden;}
+.list-freeDomBox li{ float:left; width:100%; border-bottom:1px solid #01a4e8;}
+.list-freeDomBox li a{ padding-left:48px; color:#fff; font-size:13px; display:block;}
+
+.icon-addPro{ background:url(../images/general/addProduct.png) 14px center no-repeat; background-size:18px 18px;}
+.icon-addTea{ background:url(../images/general/addTeam.png) 14px center no-repeat; background-size:18px 18px;}
+
+
+/*$.creatApd_fullBtn()*/
+.creatApd_fullViewA{
+	animation-name:creatApdfulViewA;
+	-webkit-animation-name:creatApdfulViewA;
+	animation-duration:0.75s;
+	-webkit-animation-duration:0.75s;
+	animation-timing-function:cubic-bezier(0.25,1,1,1);
+	-webkit-animation-timing-function:cubic-bezier(0.25,1,1,1);
+}
+@-webkit-keyframes creatApdfulViewA{
+	0%{ -webkit-transform:translate(0,100%); opacity:0;}
+	55%{ -webkit-transform:translate(0,-10%);}
+	100%{ -webkit-transform:translate(0,0); opacity:1}
+}
+@keyframes creatApdfulViewA{
+	0%{ transform:translate(0,100%); opacity:0;}
+	55%{ transform:translate(0,-10%);}
+	100%{ transform:translate(0,0); opacity:1}
+}
+
+
+/*$.creat_confirm()*/
+.creat_confirmA{
+	animation-name:creatconfirmA;
+	-webkit-animation-name:creatconfirmA;
+	animation-duration:0.75s;
+	-webkit-animation-duration:0.75s;
+	animation-timing-function:cubic-bezier(0.25,1,1,1);
+	-webkit-animation-timing-function:cubic-bezier(0.25,1,1,1);
+}
+@-webkit-keyframes creatconfirmA{
+	0%{ -webkit-transform:scale(0); opacity:0;}
+	35%{ -webkit-transform:scale(1.05);}
+	100%{ -webkit-transform:scale(1); opacity:1}
+}
+@keyframes creatconfirmA{
+	0%{ transform:scale(0); opacity:0;}
+	35%{ transform:scale(1.05);}
+	100%{ transform:scale(1); opacity:1}
+}
+
+/*微推送*/
+.CssAll-microInfPush{ 
+	transition:left cubic-bezier(0.45,1,0.25,1) 0.75s,right cubic-bezier(0.45,1,0.25,1) 0.75s;
+	-o-transition:left cubic-bezier(0.45,1,0.25,1) 0.75s,right cubic-bezier(0.45,1,0.25,1) 0.75s;
+	-webkit-transition:left cubic-bezier(0.45,1,0.25,1) 0.75s,right cubic-bezier(0.45,1,0.25,1) 0.75s;
+	-ms-transition:left cubic-bezier(0.45,1,0.25,1) 0.75s,right cubic-bezier(0.45,1,0.25,1) 0.75s;
+}
+
+/**/
+.anim-listOption{
+	animation-name:anlistOption;
+	-webkit-animation-name:anlistOption;
+	animation-duration:0.75s;
+	-webkit-animation-duration:0.75s;
+	animation-timing-function:cubic-bezier(0.45,1,1,1);
+	-webkit-animation-timing-function:cubic-bezier(0.45,1,1,1);
+}
+@-webkit-keyframes anlistOption{
+	0%{ -webkit-transform:scale(0); opacity:0;}
+	35%{ -webkit-transform:scale(1.05);}
+	100%{ -webkit-transform:scale(1); opacity:1}
+}
+@keyframes anlistOption{
+	0%{ transform:scale(0); opacity:0;}
+	35%{ transform:scale(1.05);}
+	100%{ transform:scale(1); opacity:1}
+}
+
+.colprogressBarTran{ transition:all ease 1.2s; -webkit-transition:all ease 1.2s;}
+
+/*自由联动表单*/
+.js-autoRelaForm-act{ color:#099;}
+

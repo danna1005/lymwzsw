@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>公司介绍-浏阳市马尾皂水库管理所</title>
+<script type="text/javascript" src="js/boot.js"></script>
+<link type="text/css" rel="stylesheet" href="css/galleryview.css" />
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<!--[if ie 6]>
+<script>
+	DD_belatedPNG.fix('.title,.prev,.next,.nav-prev,.nav-next,#arrjt');
+</script>
+<![endif]-->
+<style>
+#footer{margin-top:10px;}
+</style>
+</head>
+<body>
+<!--header-->
+<div id="top"></div>
+<div id="secondary" class="w980"> <img src="images/waterpic.jpg" width="980" height="150" />
+  <div class="bigbox">
+    <div class="left">
+      <div class="left_bt">
+        <p>About us </p>
+        <p><span class="publicTitle">公司简介</span></p>
+      </div>
+      <div class="left_nav">
+        <ul class="nav-change">
+          <li class="cur"><a href="#">公司介绍</a></li>
+          <li><a href="#">组织架构</a></li>
+          <li><a href="#">发展历程</a></li>
+          <li><a href="#">公司荣誉</a></li>
+          <li><a href="#">企业精神</a></li>
+          <li><a href="#">公司活动</a></li>
+        </ul>
+      </div>
+      <div class="map"></div>
+    </div>
+    <div class="right">
+      <div class="cont_title">
+        <div class="cont_title_posi"><a href="index.html">首页</a> > <a href="aboutus.html" class="publicTitle">公司简介</a> > <span class="articleTile">公司介绍</span></div>
+      </div>
+      <div class="cont_content" id="aboutus-content">
+	      <ul class="content-ul">
+	      	<li class="select">
+	      		<h1 class="articleTile">公司介绍</h1>
+	      		<p>
+	      			<p class="txt-indent">
+	      				浏阳市马尾皂水库管理所成立于1976年，位于浏阳市淳口镇佛岭村，水库正常蓄水位167.78m，正常蓄水位库容2263万m³，是一座以防洪为主的中型水利工程，并兼有灌溉、发电、供水等综合效益的中型水库。
+	      			</p>
+	      			<p class="txt-indent">
+						马尾皂水库管理所属全民所有制自收自支的事业单位，现有干部职工48人，分为行政、工程灌溉安全饮水、电站三大组。水库管理所认真贯彻行党的水利工程方针，继承和发扬“献身、负责、求实”的水利行业精神，与时俱进，开拓创新，多次被上级部门评为先进单位。
+	      			</p>
+	      			<h2 class="h2-cls padT-20">党支部简介</h2>
+	      			<p class="txt-indent">
+	      				马尾皂水库支部委员会成立于1976年，是隶属于浏阳市水务局委员会的基层党组织，现有中共正式党员9名，预备党员1名，支部委员会由支部书记，组织委员和宣传委员三人组成。
+	      			</p>
+	      			<p class="txt-indent">
+	      				它的基本任务是：宣传执行党的路线、方针、政策，执行上级和本级组织的决议，充分发挥党员的先锋模范作用，积极创先争优，团结、组织党内外的干部和群众，努力完成本单位所担负的任务。
+	      			</p>
+	      			<h2 class="h2-cls padT-20">水电站简介</h2>
+	      			<p class="txt-indent">
+	      				马尾皂水电站由一级电站和二级电站组成，电站总装机1520KW，多年平均发电量443万KWH，年均增加发电量203万KWH。马尾皂水电站增效扩容改造，对缓解该地区的用电矛盾、提高供电质量、促进当地经济发展，改善山区生态环境具有积极推动作用。将马尾皂电站纳入农村水电增效扩容项目已势在必得，也是加快新农村电气化建设、建设“两型社会”的重要举措。
+	      			</p>
+	      			<h2 class="h2-cls padT-20">水库简介</h2>
+	      			<p class="txt-indent">
+	      				它的基本任务是：宣传执行党的路线、方针、政策，执行上级和本级组织的决议，充分发挥党员的先锋模范作用，积极创先争优，团结、组织党内外的干部和群众，努力完成本单位所担负的任务。马尾皂水库集雨面积46.48km²，总库容2702万³，正常库容2263万m³，水库具有多年调节能力，按平均年来水量计算，除去灌溉用水2300万m³外，尚有148万m³水富余。水库库区内植物保护良好，无企业污染，库水经过自然沉淀后含沙量很小，水体清澈透明，水质符合I类生活供水水源标准。根据淳口镇2015年规划，供水需求和马尾皂水库的供水能力，根据水库年经调节计算结果，按最终供水规模3000m立方/天计算，马尾皂水库农村饮水安全工程两座水厂全年供水237.6万m³，马尾皂水库完全有供应能力。
+	      			</p>
+	      			<h2  class="h2-cls padT-20">灌溉简介</h2>
+	      			<p class="txt-indent">
+	      				水库灌区设计灌溉农田面积5.7万亩，灌溉涉及淳口、龙伏、沙市三个乡镇，47个行政村，灌溉面积高达5.3万亩，“服务三农”是马尾皂水库灌溉的基本方针。
+	      			</p>
+	      		</p>
+	      	</li>
+	      	<li>
+	      		<p>
+	      			<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>
+	      		</p>
+	      	</li>
+	      	<li>
+	      		<p>
+	      			<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>
+	      		</p>
+	      	</li>
+	      	<li>
+	      		<p><div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div></p>
+	      	</li>
+	      	<li>
+	      		<p>
+	      			<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>
+	      		</p>
+	      	</li>
+	      	<li>
+	      		<h1 class="articleTile hdTitle"></h1>
+	      		<p class="hdContent">
+	      			
+	      		</p>
+	      	</li>
+	      </ul>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--footer-->
+<div id="footer"></div>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		$('.nav-change').delegate('li>a','click',function(e){
+			e.preventDefault();
+			var ind = $(this).parent().index(),
+				articleTile= $(this).text();
+			$(this).parent().addClass('cur').siblings().removeClass('cur');
+			$('.content-ul').find('li').eq(ind).addClass('select').siblings().removeClass('select'); //显示对应的nav 内容
+			$('.cont_title_posi').find('.articleTile').text(articleTile); //显示nav对应的面包屑
+		})
+		$.ajax({
+			url:"../newsAction.do?method=detailJsonByType",
+			data:{type:"1"},
+			type:"post",
+			success:function(json){
+				var json = $.parseJSON(json);
+				$(".hdTitle").html(json.title);
+				$(".hdContent").html(json.contents);
+			}
+		})
+	})
+</script>
+</body>
+</html>

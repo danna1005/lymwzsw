@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <!-- 
+	<property name="hibernate.cache.use_query_cache">true</property> 
+	<property name="current_session_context_class">thread</property>
+	-->
+    <!-- 开启二级缓存 
+	<property name="hibernate.cache.use_second_level_cache">true</property>
+	<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+	-->
+    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.format_sql">true</property>
+    <property name="hibernate.cache.provider_class">org.hibernate.cache.HashtableCacheProvider</property>
+    <property name="dialect">org.hibernate.dialect.SQLServerDialect</property>
+    <property name="hibernate.connection.isolation">2</property>
+    <!--  配置JDDI数据源
+	<property name="connection.datasource">java:comp/env/jdbc/ss_java</property>
+	-->
+    <property name="hibernate.hbm2ddl.auto">update</property>
+    
+  </session-factory>
+</hibernate-configuration>

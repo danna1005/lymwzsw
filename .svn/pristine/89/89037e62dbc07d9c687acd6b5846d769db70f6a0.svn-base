@@ -1,0 +1,4 @@
+jdbc.driver_class=com.microsoft.sqlserver.jdbc.SQLServerDriver
+jdbc.url=jdbc:sqlserver://120.25.156.216:1433;databaseName=SYDATA;
+jdbc.username=sa
+jdbc.password=ccsoft830905#

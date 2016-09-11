@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.thiscc.xtsz.entity">
+    
+    <class name="News" table="t_news" dynamic-insert="true" dynamic-update="true">
+        <cache usage="nonstrict-read-write"/>
+        <id name="id" type="java.lang.Integer" unsaved-value="null">
+            <column name="id" length="4"/>
+            <generator class="increment"/>
+        </id>
+        
+        
+        <property name="title" column="title" />
+        <property name="time" column="time" />
+        <property name="contents" column="contents" />
+        <property name="zuozhe" column="zuozhe" />
+        <property name="state" column="state" />
+        <property name="zzid" column="zzid" />
+        <property name="type" column="type" />
+    </class>
+</hibernate-mapping>

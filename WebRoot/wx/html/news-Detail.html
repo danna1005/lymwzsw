@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>浏阳市马尾皂水库管理所微网站-新闻详情</title>
+<meta name="robots" content="all">
+<meta name="author" content="Design:ThisCC-Design Department; Web Layout:ThisCC-web-Lyq">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="../css/Structure.css" rel="stylesheet" type="text/css" />
+<link href="../css/Pattern.css" rel="stylesheet" type="text/css" />
+<link href="../css/animate.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../web/js/jquery.js"></script>
+<script type="text/javascript" src="../../web/js/jquery.SuperSlide2.js"></script>
+<script type="text/javascript" src="../../web/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" src="../js/page.js"></script>
+<script type="text/javascript">
+	$(function(){
+		var type ="";
+		switch(getUrlParam().type){
+			case 'gsxw':
+				type=2;
+			break;
+			case 'hyzx':
+				type=3;				
+			break;
+			case 'mtzx':
+				type=4;
+			break;
+			case 'swzs':
+				type=5;
+			break;
+			case 'gjfg':
+				type=6;
+			break;
+			case 'hnfg':
+				type=7;
+			break;
+			case 'csfg':
+				type =8;
+			break;
+			case 'szgk':
+				type=9;
+			break;
+		}		
+		$.ajax({
+			url:"../../newsAction.do?method=detailJson",
+			data:{id:getUrlParam().id,type:type},
+			type:"post",
+			success:function(json){
+				json = $.parseJSON(json);
+				var date = json.time.substring(0,19);
+				$('.detail-tit').html(json.title);
+				$('.detail-date').html(date);
+				$('.detail-cont').html(json.contents);
+			}
+		});
+	})
+</script>
+</head>
+
+<body class="bg-White">
+<header class="clor-Orige s-detail-header">
+    <a href="index.html" class="hd-comeL Icon-comeL"></a>
+    <h3 class="header-title">公司新闻</h3>
+</header>
+<div class="container width100 marT-50">
+	<div class="floatLwidth">
+		<div class="article">
+			<h4 class="detail-tit font-18"></h4>
+			<p class="detail-date clor-gray"></p>
+			<div class="detail-cont marT-20 line-24">
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>

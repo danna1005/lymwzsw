@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>客户服务-浏阳市马尾皂水库管理所</title>
+<script type="text/javascript" src="js/boot.js"></script>
+ <link rel="stylesheet" href="../kindeditor/themes/default/default.css" />
+<!--[if ie 6]>
+<script>
+	DD_belatedPNG.fix('.title,.prev,.next');
+</script>
+<![endif]-->
+</head>
+
+<body>
+<!--header-->
+<div id="top">
+ 
+</div>
+<div id="secondary" class="w980"> <img src="images/waterpic.jpg" width="980" height="150" />
+  <div class="bigbox">
+    <div class="left">
+      <div class="left_bt">
+        <p>Services</p>
+        <p><span class="publicTitle">客户服务</span></p>
+      </div>
+      <div class="left_nav">
+        <ul class="nav-change">
+          <li class="cur" link-name="lsjb"><a href="server.html?type=server&category=lsjb">漏水举报</a></li>
+          <li link-name="bzsq"><a href="server.html?type=server&category=bzsq">报装申请</a></li>
+          <li link-name="sfcx"><a href="http://ccpay.thiscc.com/index.html" target="_blank">水费查询</a></li>
+          <li link-name="wsbx"><a href="server.html?type=server&category=wsbx">网上报修</a></li>
+          <li link-name="qa"><a href="javascript:void(0);">常见问题</a></li>
+          <li link-name="ysjg"><a href="javascript:void(0);">用水价格</a></li>
+          <li link-name="lxwm"><a href="javascript:void(0);">联系我们</a></li>
+          <li link-name="ywzn"><a href="javascript:void(0);">业务指南</a></li>
+          <li link-name="yywd"><a href="javascript:void(0);">营业网点</a></li>
+          <li link-name="yhxz"><a href="javascript:void(0);">用户须知</a></li>
+        </ul>
+      </div>
+      <div class="map"></div>
+    </div>
+    <div class="right">
+      <div class="cont_title">
+        <div class="cont_title_posi"><a href="index.html">首页</a> > <a href="server.html">客户服务</a> > <span class="articleTile">漏水举报</span></div>
+      </div>
+      <div class="cont_content">
+        <div class="fd-form">
+          <form name="fdForm" action="">
+              <div class="form-cell">
+                <span class="field"><em>*</em>标题：</span><input id="title" type="text" class="required"/>
+              </div>
+              <div class="form-cell">
+                <span class="field"><em>*</em>联系人：</span><input id="customer" type="text" class="required"/>
+              </div>
+              <div class="form-cell">
+                <span class="field"><em>*</em>手机号：</span><input id="mobile" type="text" class="required"/>
+              </div>
+              <div class="form-cell">
+                <span class="field">地址：</span><input id="address" type="text"/>
+              </div>
+              <div class="form-cell">
+                <span class="field"><em>*</em>内容：</span><textarea id="content" class="required"></textarea>
+              </div>
+              <div class="form-cell" style="margin-left:90px">                
+                <input type="button" value="上传图片" id="uploadImg" class="upload-btn" />
+              </div>
+              <div class="form-cell" style="margin-left:90px">
+                <img src="" class="file-img" style="display:none"/>
+              </div>
+              <div class="form-cell"><input type="button" id="sub" value="提交" class="submit" /></div>
+          </form>
+      	</div>
+      </div>
+      <div class="page"> 
+        <div class="clear"></div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<!--footer-->
+<div id="footer"></div>
+</body>
+</html>
+<script type="text/javascript" src="js/public.js"></script>
+<!-- <script type="text/javascript" src="js/uploadify/jquery.uploadify.js"></script> -->
+<script charset="utf-8" src="../kindeditor/kindeditor.js"></script>
+<script charset="utf-8" src="../kindeditor/lang/zh_CN.js"></script>
+<script type="text/javascript">
+  var listTmp = '{{each list as value i}}'
+  +   '{{if i<=10}}'
+  +         '<li><h3 class="f-title">{{value.title}}</h3><p class="f-answer">{{delHtml(value.contents)}}</p><span class="fr f-date">{{value.time.substring(0,16)}}</span></li>'
+  +   '{{/if}}'
+  +    '{{/each}}';
+  var listRender = template.compile(listTmp),requesturl = "test.js"
+</script>
+<script type="text/javascript">
+  //上传图片调用kindEditor
+  KindEditor.ready(function(K){
+    var editor = K.editor({
+      uploadJson: '../kindeditor/jsp/upload_img_json.jsp',
+      fileManagerJson: '../kindeditor/jsp/file_manager_json.jsp',
+      allowFileManager : false,
+      allowPreviewEmoticons : false
+    });
+    K('#uploadImg').click(function(){
+      var id = $(this).attr("id");
+      editor.loadPlugin('image', function() {
+        editor.plugin.imageDialog({
+          showRemote:false, //只可本地上传
+          onAfterUpload : function(url, title, width, height, border, align){
+          }, 
+          clickFn : function(url, title, width, height, border, align) {
+            $('.file-img').show().attr('src',url);
+            editor.hideDialog();
+          }
+        });
+      });
+    });
+  })
+</script>   
+<script type="text/javascript">
+    var fdType="";
+    function lawgetInfo(pramUrl){   
+      switch(getUrlParam().category){
+        case 'qa':
+          $('.nav-change').find('li').eq(4).addClass('cur').siblings().removeClass('cur');        
+          $('.cont_title_posi').find('.articleTile').text('常见问题');
+          $('.cont_content').html('').load('qa.html');
+        break;
+        case 'bzsq':
+          $('.nav-change').find('li').eq(1).addClass('cur').siblings().removeClass('cur');        
+          $('.cont_title_posi').find('.articleTile').text('报装申请');
+          fdType =1;
+          //$('.cont_content').html('<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>')
+          $('.cont_content').html('').load('application.html');
+        break;
+        case 'lsjb':
+          $('.nav-change').find('li').eq(0).addClass('cur').siblings().removeClass('cur');        
+          $('.cont_title_posi').find('.articleTile').text('漏水举报');
+          fdType= 2;
+        break;
+        case 'wsbx':
+          $('.nav-change').find('li').eq(3).addClass('cur').siblings().removeClass('cur');        
+          $('.cont_title_posi').find('.articleTile').text('网上报修'); 
+          fdType = 3;
+          $('.cont_content').html('').load('repair.html');
+        break;
+      }
+    }
+    function check (obj,info,fun,click){
+        var sp = $('.validate');
+        obj.onfocus = function(){
+        }
+    }
+    $(function(){
+      $('.fd-form :input').blur(function(){
+        var $parent = $(this).parent();
+        $parent.find('.validate').remove();
+        //验证用户名 
+        if( $(this).is('#title') ){ 
+           if( this.value==""){ 
+               var errorMsg = '请输入标题'; 
+               $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+           }else{ 
+              if(this.value.length>30){
+                var errorMsg = '标题不能超过30个字'; 
+                $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+              }else{
+               $parent.append('<span class="validate onSuccess"></span>'); 
+              }
+           } 
+        } 
+        //验证联系人
+        if( $(this).is('#customer') ){ 
+           if( this.value==""){ 
+               var errorMsg = '联系人不能为空'; 
+               $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+           }else{ 
+               $parent.append('<span class="validate onSuccess"></span>'); 
+           } 
+        } 
+        //验证手机号
+        if($(this).is('#mobile')){
+          if( this.value==""){
+            var errorMsg = '手机号码不能为空'; 
+            $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+          }else{
+            if(!/^1\d{10}$/.test(this.value)){
+              var errorMsg = '手机号码格式不正确'; 
+              $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+            }else{
+              $parent.append('<span class="validate onSuccess"></span>'); 
+            }
+          }
+        }
+        //验证内容
+        if($(this).is('#content')){
+          if(this.value==""){
+            var errorMsg = '内容不能为空'; 
+            $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+          }else{
+            $parent.append('<span class="validate onSuccess"></span>'); 
+          }
+        }
+      }).keyup(function(){
+        $(this).triggerHandler('blur');
+      }).focus(function(){
+        $(this).triggerHandler('blur');
+      })
+      //提交操作
+      $("#sub").click(function(){    
+        var title=$("#title").val() // 标题
+            ,customer=$("#customer").val() //联系人
+            ,mobile=$("#mobile").val() //手机号
+            ,address=$("#address").val() //地址
+            ,content=$("#content").val() //内容
+            ,imgUrl = $('.file-img').attr('src'); //图片
+         $('.fd-form :input.required').trigger('blur');
+         var errorNum = $('.fd-form').find('.onError').length;
+         if(errorNum>0){
+          return false;
+         }else{
+           $.ajax({
+            url:"../customerServicesAction.do?method=save",
+            type:"post",
+            dataType: "json",
+            async:false,
+            data:{
+              "title":title
+              ,"customer":customer
+              ,"mobile":mobile
+              ,"address":address
+              ,"content":content
+              ,"type":fdType
+              ,"imgUrl":imgUrl
+            },
+            success:function(data){
+              if(data!=null && data){
+              	 alert('提交成功，我们会尽快处理！');
+                 window.location.href="index.html";
+              }else{
+                alert('提交失败！');
+              }             
+            }
+          });
+        }
+      });
+
+
+      //nav切换显示对应内容
+      $('.nav-change').delegate('li>a','click',function(){
+          var linkType = $(this).parent().attr('link-name'),
+              panel = $('.cont_content'),
+              articleTile =$(this).text();
+          $(this).parent().addClass('cur').siblings().removeClass('cur');
+          $('.cont_title_posi').find('.articleTile').text(articleTile); //显示nav对应的面包屑
+          
+          switch(linkType){
+              case 'ysjg':
+                $.ajax({
+                    url:"../newsAction.do?method=detailJsonByType",
+                    data:{type:10},
+                    type:"post",
+                    success:function(data){
+                        json = $.parseJSON(data);
+                        $('.cont_content').html('<h1 class="articleTile">'+json.title+'</h1><p>'+json.contents+'</p>');
+                    }
+                })
+                break;
+              case 'qa': //常见问题
+                panel.html('').load('qa.html');
+                break;
+              case 'lxwm': //联系我们
+                panel.html('').load('contact.html');
+                break;
+              case 'ywzn':
+                panel.html('<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>')
+                break;
+              case 'yywd':
+                //panel.html('').load('outlets.html');
+                panel.html('<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>');
+                break;
+              case 'yhxz':
+                panel.html('<div style="text-align:center">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>');
+                break;
+          }
+      });
+  })
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,maximum-scale=1.0,user-scalable=no;">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>浏阳市马尾皂水库管理所微网站-客户服务</title>
+<meta name="robots" content="all">
+<meta name="author" content="Design:ThisCC-Design Department; Web Layout:ThisCC-web-Lyq">
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link href="../css/Structure.css" rel="stylesheet" type="text/css" />
+<link href="../css/Pattern.css" rel="stylesheet" type="text/css" />
+<link href="../css/animate.css" rel="stylesheet" type="text/css" />
+<link href="../css/css.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../web/js/jquery.js"></script>
+<script type="text/javascript" src="../../web/js/jquery.SuperSlide2.js"></script>
+<script type="text/javascript" src="../../web/js/DD_belatedPNG.js"></script>
+<script type="text/javascript" src="../js/page.js"></script>
+</head>
+
+<body class="bg-light-gray">
+<header class="clor-Orige s-detail-header">
+    <a href="index.html" class="hd-comeL Icon-comeL"></a>
+    <h3 class="header-title">常见问题</h3>
+</header>
+<div class="container width100 marT-50">
+	<div class="floatLwidth">
+		<div class="article service-cont">
+		</div>
+	</div>
+</div>
+
+<footer>
+</footer>
+
+</body>
+</html>

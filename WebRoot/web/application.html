@@ -1,0 +1,234 @@
+<div class="fd-form">
+   <form name="fdForm" action="">
+   	   <div class="form-cell">
+         <span class="field">申请编号</span><input type="text" id="applicationId"/>
+       </div>
+       <div class="slt-panel">
+         <span class="field">营业所</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="businessPlace">收费-抄表</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>收费-抄表</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="form-cell">
+         <span class="field"><em>*</em>申请户名</span><input id="accountName" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">联系人</span><input id="customer" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">手机号</span><input id="mobile" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">申请户数</span><input id="count" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">用水人数</span><input id="member" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">接表地址</span><input id="address" type="text"/>
+       </div>
+       <div class="slt-panel">
+         <span class="field">申请类型</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="applicationType">内部</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>内部</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="slt-panel">
+         <span class="field">用户类型</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="userType">私人</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>私人</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="slt-panel">
+         <span class="field">拟装水表</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="metaType">普通水表</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>普通水表</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="slt-panel">
+         <span class="field">水管口径</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="cal">15(99999)</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>15(99999)</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="form-cell">
+         <span class="field">申请日期</span><input data-role="date" class="selectTime" id="applicationDate" type="text"/>
+       </div>
+       <div class="slt-panel">
+         <span class="field">用水性质</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="waterNature">2.30</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>2.30</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="slt-panel">
+         <span class="field">抄表线路</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="metarLines">抄表线路</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>抄表线路</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="form-cell">
+         <span class="field">身份证号</span><input id="idNumber" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">合同编号</span><input id="contactNumber" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">预约时间</span><input data-role="date" class="selectTime" id="appointTime" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">备注：</span><textarea id="remark"></textarea>
+       </div>
+       <div class="form-cell" style="margin-left:90px;">
+       	 <div class="fl" style="margin-right:10px"><input type="checkbox" name="chkReport" id="chkReport"/><label for="chkReport">有用水申请报告</label></div>
+       	 <div class="fl" style="margin-right:10px"><input type="checkbox" name="chkForm" id="chkForm"/><label for="chkReport">有审批表</label></div>
+       	 <div class="fl" style="margin-right:10px"><input type="checkbox" name="chkSndsupplay" id="chkSndsupplay"/><label for="chkSndsupplay">二次供水用户</label></div>
+       </div>
+       <div class="form-cell"><input type="button" id="sub" value="提交" class="submit" /></div>
+   </form>
+</div>
+<script type="text/javascript" src="js/component/mobiscroll/mobiscroll.2.13.2.js"></script>
+<link href="js/component/mobiscroll/mobiscroll.2.13.2.css" rel="stylesheet" />
+<script>
+	$(function(){
+		//报修类型选择
+		$('.slt-type').each(function(){
+			var $this = $(this);
+			$this.on('click','.slt-a',function(){
+				$this.find('.slt-b').toggleClass('hide');
+			}).on('click','.down',function(){
+				$this.find('.slt-b').toggleClass('hide');
+			});
+			$this.find('.slt-b').on('click','li',function(){
+				$this.find('.slt-a').html($(this).html());
+				$this.find('.slt-b').addClass('hide');
+			});
+		})
+		//表单验证
+		$('.fd-form :input').blur(function(){
+        var $parent = $(this).parent();
+        $parent.find('.validate').remove();
+        //验证用名
+        if( $(this).is('#accountName') ){
+           if( this.value==""){ 
+               var errorMsg = '请输入户名'; 
+               $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+           }else{ 
+              $parent.append('<span class="validate onSuccess"></span>'); 
+           } 
+        } 
+        //验证户数
+        if($(this).is('#count')){
+          if(this.value!=""){
+          	  var reg = /^[0-9]*[1-9][0-9]*$/
+	          if(!reg.test(this.value)){
+	            var errorMsg = '申请户数应为正整数'; 
+	            $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+	          }else{
+	            $parent.append('<span class="validate onSuccess"></span>'); 
+	          }
+	        }
+        }
+        //用水人数
+        if($(this).is('#member')){
+          if(this.value!=""){
+          	  var reg = /^[0-9]*[1-9][0-9]*$/
+	          if(!reg.test(this.value)){
+	            var errorMsg = '用水人数应为正整数'; 
+	            $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+	          }else{
+	            $parent.append('<span class="validate onSuccess"></span>'); 
+	          }
+	        }
+        }
+        //验证手机号
+        if($(this).is('#mobile')){
+          if( this.value!=""){
+          	if(!/^1\d{10}$/.test(this.value)){
+              var errorMsg = '手机号码格式不正确'; 
+              $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+            }else{
+              $parent.append('<span class="validate onSuccess"></span>'); 
+            }
+          }
+        }
+        //验证身份证号
+        if($(this).is('#idNumber')){
+          if(this.value!=""){
+	          var reg =/^(\d{15}$|^\d{18}$|^\d{17}(\d|X|x))$/;
+	          if(!reg.test(this.value)){
+	            var errorMsg = '身份证号码格式不正确'; 
+	            $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+	          }else{
+	            $parent.append('<span class="validate onSuccess"></span>'); 
+	          }
+          }
+        }
+      }).keyup(function(){
+        $(this).triggerHandler('blur');
+      }).focus(function(){
+        $(this).triggerHandler('blur');
+      });
+      
+      //提交操作
+      $("#sub").click(function(){    
+      	var applicationId =$('#applicationId').val() //申请编号
+			,businessPlace=$("#businessPlace").html() //营业所
+            ,accountName=$("#accountName").val() //申请户名
+            ,customer=$("#customer").val() //联系人
+            ,mobile=$("#mobile").val() //手机号
+            ,count=$("#count").val() //申请户数
+            ,member=$("#member").val() //用水人数
+            ,address=$("#address").val() //接表地址
+            ,applicationType=$("#applicationType").html() //申请类型
+            ,userType = $('#userType').html() //用户类型
+            ,metaType = $('#metaType').html() //拟装水表
+            ,cal = $('#cal').html() //水管口径
+            ,applicationDate = $('#applicationDate').val() //申请日期
+            ,waterNature = $('#waterNature').html() //用水性质
+            ,metarLines = $('#metarLines').html() //抄表线路
+            ,idNumber = $('#idNumber').val() //身份证号
+            ,contactNumber = $('#contactNumber').val() //合同编号
+            ,appointTime = $('#appointTime').val() //预约时间
+            ,remark = $('#remark').val() //备注         
+            
+         $('.fd-form :input.required').trigger('blur');
+         var errorNum = $('.fd-form').find('.onError').length;
+         if(errorNum>0){
+          return false;
+         }else{
+         	//添加数据入库           
+         }
+      });
+      //时间控件
+	  $(".selectTime").mobiscroll(Datescroller('date',function(text){},true));
+	})
+	
+</script>

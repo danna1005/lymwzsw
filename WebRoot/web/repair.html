@@ -1,0 +1,105 @@
+<div class="fd-form">
+   <form name="fdForm" action="">
+   	   <div class="form-cell">
+         <span class="field">标题</span><input id="title" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field"><em>*</em>姓名</span><input id="customer" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field"><em>*</em>用户编码</span><input id="code" type="text"/>
+       </div>
+       <div class="form-cell">
+         <span class="field">手机号</span><input id="mobile" type="text"/>
+       </div>
+       <div class="slt-panel">
+         <span class="field">报修类型</span>
+         <div class="slt-type">
+         	<div class="slt-a" id="type">漏水</div>
+         	<span class="down"></span>
+         	<ul class="slt-b hide">
+         		<li>漏水</li>
+         		<li>停水</li>
+         		<li>无水</li>
+         	</ul>
+         </div>
+       </div>
+       <div class="form-cell">
+         <span class="field">报修地址</span><input id="address" type="text"/>
+       </div>
+       <div class="form-cell"><input type="button" id="sub" value="提交" class="submit" /></div>
+   </form>
+</div>
+<script>
+	$(function(){
+		//报修类型选择
+		$('.slt-type').on('click','.slt-a',function(){
+			$('.slt-b').toggleClass('hide');
+		}).on('click','.down',function(){
+			$('.slt-b').toggleClass('hide');
+		});
+		$('.slt-b').on('click','li',function(){
+			$(this).parents('.slt-type').find('.slt-a').html($(this).html());
+			$(this).parent().addClass('hide');
+		})
+		
+		//表单验证
+		$('.fd-form :input').blur(function(){
+        var $parent = $(this).parent();
+        $parent.find('.validate').remove();
+        //验证用户名 
+        if( $(this).is('#code') ){ 
+           if( this.value==""){ 
+               var errorMsg = '请输入用户编码'; 
+               $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+           }else{ 
+              $parent.append('<span class="validate onSuccess"></span>'); 
+           } 
+        } 
+        //验证联系人
+        if( $(this).is('#customer') ){ 
+           if( this.value==""){ 
+               var errorMsg = '请输入姓名'; 
+               $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+           }else{ 
+               $parent.append('<span class="validate onSuccess"></span>'); 
+           } 
+        } 
+        //验证手机号
+        if($(this).is('#mobile')){
+          if( this.value==""){
+            var errorMsg = '请输入手机号码'; 
+            $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+          }else{
+            if(!/^1\d{10}$/.test(this.value)){
+              var errorMsg = '手机号码格式不正确'; 
+              $parent.append('<span class="validate onError">'+errorMsg+'</span>'); 
+            }else{
+              $parent.append('<span class="validate onSuccess"></span>'); 
+            }
+          }
+        }
+      }).keyup(function(){
+        $(this).triggerHandler('blur');
+      }).focus(function(){
+        $(this).triggerHandler('blur');
+      });
+      
+      //提交操作
+      $("#sub").click(function(){    
+      	var code =$('#code').val()
+			,title=$("#title").val() // 标题
+            ,customer=$("#customer").val() //联系人
+            ,mobile=$("#mobile").val() //手机号
+            ,address=$("#address").val() //地址
+            ,type=$("#type").val(); //报修类型
+         $('.fd-form :input.required').trigger('blur');
+         var errorNum = $('.fd-form').find('.onError').length;
+         if(errorNum>0){
+          return false;
+         }else{
+           //添加数据入库
+         }
+      });
+	})
+</script>

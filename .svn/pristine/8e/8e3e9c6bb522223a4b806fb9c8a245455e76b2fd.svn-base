@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>浏阳市马尾皂水库管理所</title>
+<script type="text/javascript" src="js/boot.js"></script>
+<!--[if ie 6]>
+<script>
+	DD_belatedPNG.fix('.title,.prev,.next');
+</script>
+<![endif]-->
+</head>
+
+<body>
+<!--header-->
+<div id="top">
+  
+</div>
+<div id="secondary" class="w980"> <img src="images/waterpic.jpg" width="980" height="150" />
+  <div class="bigbox">
+    <div class="left">
+      <div class="left_bt">
+        <p>News</p>
+        <p><span class="publicTitle">水务新闻</span></p>
+      </div>
+      <div class="left_nav">
+        <ul class="nav-change">
+        </ul>
+      </div>
+      <div class="map"></div>
+    </div>
+    <div class="right">
+      <div class="cont_title">
+        <div class="cont_title_posi"><a href="index.html">首页</a> > <a class="publicTitle" href="">水务新闻</a> > <span class="articleTile">公司新闻</span></div>
+      </div>
+      <div class="cont_news_list" >
+        <ul id="ul_news_list" style="height:415px;">
+          
+        </ul>
+        <div class="page"> 
+          <div class="clear"></div>
+        </div>
+      </div>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+<!--footer-->
+<div id="footer"></div>
+<script type="text/javascript" src="js/public.js"></script>
+<script>
+var listTemp = '{{each list as value i}}'
+	+		'{{if i<=10}}'
+	+       	 '<li  {{if i%2==0}} class="bggry" {{/if}}><a href="detail.html?id={{ value.id }}&category={{if value.type=="2"}}gsxw&type=news{{/if}}{{if value.type=="3"}}hyzx&type=news{{/if}}{{if value.type=="4"}}mtzx&type=news{{/if}}{{if value.type=="5"}}swzs&type=news{{/if}}{{if value.type=="6"}}gjfg&type=law{{/if}}{{if value.type=="7"}}hnfg&type=law{{/if}}{{if value.type=="8"}}csfg&type=law{{/if}}{{if value.type=="9"}}szgk&type=szgk{{/if}}">{{value.title | checkPublishText:35}}</a><em>{{ value.time.substring(0,10) }}</em></li>'
+	+		'{{/if}}'
+	+    '{{/each}}';
+var listRender = template.compile(listTemp);
+type="";
+function lawgetInfo(pramUrl){
+	switch(pramUrl.category){	
+		case 'gsxw':
+			type =2;
+			$('.nav-change').find('li').eq(0).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('公司新闻');
+		break;
+		case 'hyzx':
+			type=3;
+			$('.nav-change').find('li').eq(1).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('行业资讯');
+		break;
+		case 'mtzx':
+			type=4;
+			$('.nav-change').find('li').eq(2).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('媒体资讯');
+		break;
+		case 'swzs':
+			type=5;
+			$('.nav-change').find('li').eq(3).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('水务知识');
+		break;
+		case 'gjfg':
+			type=6;
+			$('.nav-change').find('li').eq(0).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('国家法律法规');
+		break;
+		case 'hnfg':
+			type=7;
+			$('.nav-change').find('li').eq(1).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('湖南法律法规');
+		break;
+		case 'csfg':
+			type =8;
+			$('.nav-change').find('li').eq(2).addClass('cur').siblings().removeClass('cur');
+			$('.cont_title_posi').find('.articleTile').text('长沙法律法规');
+		break;
+		case 'szgk':
+			type=9;
+		break;
+	}
+	$.ajax({
+		url:"../newsAction.do?method=getPageData",
+		type:"post",
+		async:false,
+		data:{
+			type:type,
+			state:"1",
+			pageIndex:0,
+			pageSize:10,
+			sortField : 'time',
+			sortOrder : 'desc'
+		},
+		success:function(e){
+			e = $.parseJSON(e);
+			var data = e.data;
+			if(data!=null&&data!=""){
+				var listHtml = listRender({list: data});
+			    $("#ul_news_list").html(listHtml);
+			}else{
+				$("#ul_news_list").html('<div style="margin:30px auto; text-align:center;">该内容正文还在收集编辑中，亲，等一等，期待产生美</div>')
+			}
+		}
+	});
+}
+</script>
+<script type="text/javascript">
+$(function(){
+	switch(getUrlParam().category){	
+		case 'gsxw':
+			type=2;
+			break;
+		case 'hyzx':
+			type =3;
+			break;
+		case 'mtzx':
+			type=4;
+			break;
+		case 'swzs':
+			type =5;
+			break;
+		case 'gjfg':
+			type =6;
+			break;
+		case 'hnfg':
+			type =7;
+			break;
+		case 'csfg':
+			type =8;
+			break;
+		case 'szgk':
+			type=9;
+			break;
+	}
+	$.ajax({
+      url:"../newsAction.do?method=getCount",
+      type:"post",
+      async:false,
+      data:{
+        type:type,
+        state:"1"
+      },
+      success:function(e){
+        e = $.parseJSON(e);
+        var lase = e.num%10;
+
+        var count = lase==0?e.num/10:parseInt(e.num/10+1);
+        if(count>1){
+	        $(".page").pagination(count, {
+	          num_edge_entries: 1, //边缘页数
+	          num_display_entries: count, //主体页数
+	          callback: pageselectCallback,
+	          items_per_page: 1, //每页显示1项
+	          prev_text: "前一页",
+	          next_text: "后一页"
+	        }); 
+	    }
+      }
+    });
+	$('.nav-change').delegate('li','click',function(){
+		var ind = $(this).index(),
+			articleTile= $(this).find('a').text(),
+			linkType=$(this).attr('link-type');
+		$(this).addClass('cur').siblings().removeClass('cur');		
+		$('.cont_title_posi').find('.articleTile').text(articleTile); //显示nav对应的面包屑
+	})	
+		
+})
+function pageselectCallback(page_index, jq){
+	if(type!=""){
+		$("#ul_news_list").html('');
+	    $.ajax({
+	      url: "../newsAction.do?method=getPageData",
+	      data:{
+	        type:type,
+	        state:"1",
+	        pageIndex:page_index,
+	        pageSize:10,
+	        sortField : 'time',
+	        sortOrder : 'desc'
+	        },
+	      success:function(e){
+	        e = $.parseJSON(e);
+	        var data = e.data;
+	        var listHtml = listRender({list: data});
+	        $("#ul_news_list").html(listHtml);
+	      }
+	    });
+	}
+}
+</script>
+</body>
+</html>

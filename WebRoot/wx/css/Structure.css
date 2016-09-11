@@ -1,0 +1,81 @@
+@charset "utf-8";
+/* 针对于不同项目的大结构把握 */
+
+/* 这是匹配横屏的状态，横屏时的css代码 */
+@media all and (orientation :landscape){}
+/* 这是匹配竖屏的状态，竖屏时的css代码 */
+@media all and (orientation :portrait){}
+@media all and (min-height:640px) and (max-height:960px){}
+/* 像素比为1时，头部颜色为绿色 */
+@media only screen and (-moz-min-device-pixel-ratio: 1), only screen and (-o-min-device-pixel-ratio: 1), only screen and (-webkit-min-device-pixel-ratio: 1), only screen and (min-device-pixel-ratio:1){}
+
+header{ position:fixed; left:0; top:0; width:100%; /*height:50px; line-height:50px; */z-index:10;}
+.header-title{ height:50px; line-height:50px; color:#fff; font-size:18px; font-weight:100; display:inline-block;}
+.hd-comeL,.hd-comeR{position:absolute; top:0; width:50px; height:50px; background-repeat:no-repeat; z-index:10;}
+.hd-comeL{ left:0;}
+.hd-comeR{ right:0;}
+footer{ position:fixed; left:0; bottom:0; width:100%; z-index:10;}
+
+/* Icon */
+.Icon-comeL,.Icon-comeR,.Icon-arrowR,.Icon-comeR-a,.Icon-Gear{ background-position:center center; background-repeat:no-repeat; background-size:22px 22px;}
+.Icon-comeL{ background-image:url(../images/general/u7.png);}
+.Icon-Gear{ background-image:url(../images/general/Info-75.png);}
+.Icon-Plus{ background:url(../images/general/Plus75.png) center center no-repeat; background-size:22px 22px;}
+
+
+/*--容器--*/
+.container{ position:relative; overflow:hidden; z-index:0;}
+
+/*--装载器--*/
+.pos-fullbox{ position:absolute; left:0; top:0; width:100%; z-index:12;}
+.pos-fullbox-nIdx{ position:absolute; left:0; top:0; width:100%;}
+
+
+/*--定位盒子--*/
+.fix-cont{ position:fixed; left:0; width:100%; z-index:0;}
+.fix-Great-cont{ position:fixed; right:0; padding:12px; width:136px; border:1px solid #b1b1b1; box-shadow:1px 1px 2px #c3c1c1; background:#fff; z-index:11;}/*插件浮窗---考虑下个版本剔除*/
+.fix-Foot-cont{ position:fixed; right:0;bottom:0; padding:12px; width:136px; border:1px solid #D7D7D7;  /*box-shadow: 0px 0px 3px #c3c1c1;*/ background:#fff; z-index:11;}
+
+
+/*--通用样式--*/
+.o-box-title{ text-align:left; width:100%; height:44px; line-height:44px; font-size:1.6em; display:block;}
+.o-box-title-b{ text-align:left; width:100%; height:24px; line-height:24px; font-size:1.6em; display:block;}
+
+.pos-btn-R{ position:absolute; right:14px; top:0; z-index:2;}
+.pos-btn-R .btn-hava{ position:relative; padding:0 18px 0 8px; height:32px; line-height:32px; color:#F39C11; font-size:1.3em; display:block;}
+.pos-btn-R .btn-hava em{ position:absolute; right:0; top:0; color:#fff; font-size:10px; background:#FE5252;}
+.pos-btn-R .item{ float:right; padding:0 8px; height:32px; line-height:32px; font-size:1.3em;}
+
+/*--一级信息盒子--*/
+.box-wid-pad{ padding-left:14px; padding-right:14px; width:100%; box-sizing:border-box;}
+.box-wid-mar{ margin-left:14px; margin-right:14px; width:100%; box-sizing:border-box;}
+.t-box-76{ height:76px;}
+.c-box-32{ height:32px; line-height:32px;}
+.c-box-36{ height:36px; line-height:36px;}
+.c-box-44{ height:44px; line-height:44px;}
+.c-box-48{ height:48px; line-height:48px;}
+
+/*--二级盒子--*/
+.t-cop-box .Repres-Img{ float:left; margin-top:12px; margin-left:14px; width:50px; height:50px;}
+.t-cop-box .Repres-Img img{ width:50px; height:50px;}
+.t-cop-box .title{ float:left; margin:12px 0 0; padding:0 0 0 12px; line-height:50px; font-size:1.6em; color:#000; display:inline-block;}
+.t-cop-box .Coll-Star{ float:right; padding:6px; width:20px; height:20px; background-repeat:no-repeat; display:inline-block;}
+.t-cop-box .Add{ float:right; padding:0 8px; line-height:32px; color:#F39C11; font-size:1.3em; display:inline-block;}
+.t-cop-box .Add:hover{ background:#d7d7d7;}
+
+
+/*--按钮--*/
+.btn-org-sta,.btn-org-stb{ padding:0 8px; height:32px; line-height:32px; font-size:13px; border-radius:2px; display:inline-block;}
+.btn-org-sta{ color:#fff; background:#f39c11;}
+.btn-org-stb{ color:#999; background:#fff;}
+
+.btn-org-b-sta{ text-align:center; width:104px; height:44px; line-height:44px; color:#fff; font-size:13px; background:#f39c11; border-radius:2px; display:inline-block;}
+
+.btn-org-full-sta{ text-align:center; width:100%; height:44px; line-height:44px; color:#fff; font-size:13px; background:#f39c11; border-radius:2px; display:inline-block;}
+
+/*底部按钮*/
+.btn-footer-a,.btn-footer-b,.btn-footer-g,.btn-footer-r{ height:43px; line-height:43px; font-size:13px;}
+.btn-footer-a{ color:#0099ff; background:#fff;}
+.btn-footer-b{ color:#fff; background:#38CF78;}
+.btn-footer-g{ color:#999; background:#EAEBEE;}
+.btn-footer-r{ color:#fff; background:#FF0033;}
